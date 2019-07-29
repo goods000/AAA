@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+    	<link rel="stylesheet" href="css/font.css" />
+	</head>
+	<bodyexchange>
+		<!--头部标题-->
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:window.history.back(-1);"></button>
+			兑换
+			<a href="exchange_record.html">兑换记录</a>
+		</h1>
+
+		<div class="exchangeBox">
+			<div class="exchange_top">
+				<div class="exchange_s">
+					<div class="exchange_title">
+						<span><img src="img/USDT.png"/><span>USDT</span><img src="img/select.png" class="select"/></span>
+						<p>余额:1002.34435</p>
+					</div>
+					<img src="img/huzhuan.png" class="huzhuan"/>
+					<div class="exchange_title">
+						<span><img src="img/AIGC.png"/><span>AIGC</span><img src="img/select.png" class="select"/></span>
+						<p>余额:1002.34435</p>
+					</div>
+				</div>
+				<div class="text">
+					<input type="number" placeholder="输入兑换数量" name="" id="" value="" />
+					<span class="shu">
+						4545454
+					</span>
+				</div>
+			</div>
+			<div class="gorup1">
+				<span class="">
+					汇率
+				</span>
+				<span class="order_price">
+					1 USDT = 0.371AUGC
+				</span>
+			</div>
+			<div class="gorup1">
+				<span class="">
+					手续费
+				</span>
+				<span class="order_price">
+					5%
+				</span>
+			</div>
+		</div>
+		
+		<div class="e_btn">
+			<input type="button" id="sub" class="yzbutton" value="确认兑币" />
+		</div>
+		
+		<div id="mo">
+			<div class="close"></div>
+			<div class="e_box">
+				<p class="yong">选择类型</p>
+				<div class="zi_buy">
+					<div class="dui_bi">
+						<img src="img/USDT.png"/>
+						<span>
+							USDT
+							<p>余额:1,343980909,54</p>
+						</span>
+					</div>
+					<img src="img/chioce.png" class="chioce"/>
+				</div>
+				<div class="zi_buy">
+					<div class="dui_bi">
+						<img src="img/AIGC.png"/>
+						<span>
+							AIGC
+							<p>余额:1,343980909,54</p>
+						</span>
+					</div>
+					<img src="img/nochoice.png" class="chioce"/>
+				</div>
+				<div class="zi_buy ex_buy">
+					<div class="dui_bi">
+						<img src="img/wall.png"/>
+						<span>
+							收益钱包
+							<p>余额:1,343980909,54</p>
+						</span>
+					</div>
+					<img src="img/nochoice.png" class="chioce"/>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(".exchange_title").click(function(){
+			$("#mo").css("display","block");
+		})
+
+		$(".close").click(function(){
+			$("#mo").css("display","none");
+		})
+
+		var toggle = true;
+		$(".zi_buy").each(function() {
+			$(".zi_buy").click(function() {
+				if(toggle) {
+					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png")
+					toggle = false;
+				} else {
+					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png")
+					toggle = true;
+				}
+			});
+		});
+	</script>
+</html>
