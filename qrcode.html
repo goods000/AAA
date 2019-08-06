@@ -6,50 +6,80 @@
     <title></title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/font.css" />
-    <script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
-    <script type="text/javascript" src="js/public.js" ></script>
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js/public.js" ></script>
 </head>
 <style>
 	.screen-right .container{padding: 0px !important;}
 	.h1{background: none;}
-	#nav{padding-top: 20px;}
+	#nav{padding: 20px 0;}
 	#nav ul{width: 65% !important;margin-left: 17% !important;background: #F4E5FF !important;}
 	.navContent{color: #6A14FF;}
-	#biao1{margin-bottom: 10%;color: #8B1FDC;font-weight: bold;}
-	.yao{margin-bottom: 10%;color: #8B1FDC;background: #F4E5FF;letter-spacing: 5px;padding:3% 5%;font-size: 20px;font-weight: bold;}
+	#biao{margin-top: 10%;color: #8B1FDC;font-weight: bold;}
+	#biao1{margin-top: 10%;color: #8B1FDC;font-weight: bold;}
+	.yao{color: #8B1FDC;background: #F4E5FF;padding:1.6% 5%;font-size: 16px;font-weight: bold;width: 70%;overflow: hidden;text-overflow: ellipsis;/*white-space: nowrap;*/
+	display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;margin: auto;}
 	.two{display: none;}
 	.tab{background: transparent !important;}
 </style>
 <body style="width: 100vw;">
 	<div class="charge1">
 		<h1 class="h1"><button class="iconfont icon-xiangzuo1" onclick="javascript:window.history.back(-1);"></button></h1>
+		<!--生成二维码-->
 		<div class="charge_bbj1">
-		<div id="nav">
-			<ul>
-				<li class="navTitle li"><span class="navContent ">左区二维码</span></li>
-				<li><span class="navContent">右区二维码</span></li>
-			</ul>
-		</div>
-		<div class="tab">
-			<div class="a">
-				<div  class="recharge" style="width: 70%;padding:10% 0;margin: auto;"></div>
-				<div class="chas_lianjie">
-					<p id="biao1">我的邀请码</p>
-					<span class="yao">000001</span>
+			<div id="nav">
+				<ul>
+					<li class="navTitle li"><span class="navContent ">左区二维码</span></li>
+					<li><span class="navContent">右区二维码</span></li>
+				</ul>
+			</div>
+			<div class="tab">
+				<div class="a">
+					<div  class="recharge" style="width: 70%;padding:10% 0;margin: auto;"></div>
+					<div class="bb">
+						<input type="text" placeholder="节点人账号" name="" id="username" value="" />
+						<select name="">
+							<option value="">左区</option>
+							<option value="">右区</option>
+						</select>
+						<input type="button" name="" id="btn" value="确定" />
+					</div>
+					<div class="chas_lianjie">
+						<span class="yao" id="v_code">http://qqgl.com/login/index?push=1&pusharea=1&joint=2&jointarea=1&register=1</span>
+						<div id="biao" class="copy" data-clipboard-target="#v_code">复制邀请码</div>
+					</div>
+				</div>
+				<div class="a two">
+					<div  class="recharge1" style="width: 70%;padding:10% 0;margin: auto;"></div>
+					<div class="bb1">
+						<input type="text" placeholder="节点人账号" name="" id="name" value="" />
+						<select name="">
+							<option value="">左区</option>
+							<option value="">右区</option>
+						</select>
+						<input type="button" name="" id="btn1" value="确定" />
+					</div>
+					<div class="chas_lianjie">
+						<span class="yao"id="v_code1">111110</span>	
+						<div id="biao1" class="copy1" data-clipboard-target="#v_code1">复制邀请码</div>
+					</div>
 				</div>
 			</div>
-			<div class="a two">
-				<div  class="recharge1" style="width: 70%;padding:10% 0;margin: auto;"></div>
-				<div class="chas_lianjie">
-					<p id="biao1">我的邀请码</p>
-					<span class="yao">111110</span>	
-				</div>
-			</div>
 		</div>
-	</div>
+	</div>	
 <script src="js/jquery.qrcode.min.js"></script>
 
 <script type="text/javascript">
+	$("#btn").click(function(){
+		$(".bb").css("display","none");
+		$(".recharge").css("display","block");
+	})
+	$("#btn1").click(function(){
+		$(".bb1").css("display","none");
+		$(".recharge1").css("display","block");
+	})
 	var $div_li = $('#nav ul li');
 	$('#nav ul li').click(function() {
 		$(this).addClass("navTitle").siblings().removeClass("navTitle");
@@ -80,6 +110,15 @@
         'padding': '10px',
     });
 
+	// 复制
+	var clipboard=new Clipboard(".copy");
+	clipboard.on("success",function(e){
+		layer.msg("复制成功",{ icon: 1,time: 2000});
+	})
+	var clipboard=new Clipboard(".copy1");
+	clipboard.on("success",function(e){
+		layer.msg("复制成功",{ icon: 1,time: 2000});
+	})
 </script>
 </body>
 </html>

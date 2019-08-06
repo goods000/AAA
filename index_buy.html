@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">  	
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1 class="h1"><button class="iconfont icon-xiangzuo1" onclick="javascript:window.history.back(-1);"></button>购买矿机</h1>
+	    <div class="shop">
+	    	<div class="buy_b">
+				<img src="img/meal.png" />
+				<div class="buy_i_b">
+					<p>小矿机 【最高收益:3倍】</p>
+					<div class="buy_title_b">
+						<p><i>挖矿算力:</i> <b>0.2%</b>/天</p>
+						<p><i>购买金额:</i> 500USDT</p>
+					</div>
+				</div>
+			</div>
+	    </div>
+	    <div class="gorup bu">
+			<span class="inputTitle">
+					支付方式
+			</span>
+			<input type="text" readonly="readonly" placeholder="请选择支付方式" name="" id="pay" value="" />
+			<img src="img/next.png" class="pay_img" />
+		</div>
+		<div class="shop_buy">
+			<p>需支付金额</p>
+			<strong>5454546541</strong>
+		</div>
+		
+		<div class="e_btn">
+			<input type="button" id="sub" class="yzbutton" value="立即购买" />
+		</div>
+		
+		<div id="mo">
+			<div class="no_see"></div>
+			<div class="e_box">
+				<p class="yong">选择支付方式</p>
+				<div class="zi_buy">
+					<div class="dui_bi">
+						<img src="img/USDT.png"/>
+						<span>
+							USDT
+							<p>余额:<i>1,343980909,54</i></p>
+						</span>
+					</div>
+					<img src="img/nochoice.png" class="chioce"/>
+				</div>
+				<div class="zi_buy">
+					<div class="dui_bi">
+						<img src="img/AIGC.png"/>
+						<span>
+							AIGC
+							<p>余额:<i>9,564564909,54</i></p>
+						</span>
+					</div>
+					<img src="img/nochoice.png" class="chioce"/>
+				</div>
+			</div>
+		</div>
+		
+		
+	</body>
+<script>
+		$(".bu").click(function(){
+			$("#mo").css("display","block");
+		})
+
+		$(".no_see").click(function(){
+			$("#mo").css("display","none");
+		})
+		
+		var toggle = true;
+		$(".zi_buy").each(function() {
+			$(".zi_buy").click(function() {
+				if(toggle) {
+					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png");
+					$(".value_a").html($(this).find(".dui_bi span p i").html());
+					toggle = false;
+				} else {
+					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png")
+					toggle = true;
+				}
+			});
+		});
+		
+</script>	
+</html>

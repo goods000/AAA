@@ -23,12 +23,12 @@
 				<div class="exchange_s">
 					<div class="exchange_title">
 						<span><img src="img/USDT.png"/><span>USDT</span><img src="img/select.png" class="select"/></span>
-						<p>余额:1002.34435</p>
+						<p>余额:<i class="value_a">1002.34435</i></p>
 					</div>
 					<img src="img/huzhuan.png" class="huzhuan"/>
-					<div class="exchange_title">
+					<div class="exchange_tips">
 						<span><img src="img/AIGC.png"/><span>AIGC</span><img src="img/select.png" class="select"/></span>
-						<p>余额:1002.34435</p>
+						<p>余额:<i class="value_b">1002.34435</i></p>
 					</div>
 				</div>
 				<div class="text">
@@ -69,7 +69,7 @@
 						<img src="img/USDT.png"/>
 						<span>
 							USDT
-							<p>余额:1,343980909,54</p>
+							<p>余额:<i>1,343980909,54</i></p>
 						</span>
 					</div>
 					<img src="img/chioce.png" class="chioce"/>
@@ -79,7 +79,7 @@
 						<img src="img/AIGC.png"/>
 						<span>
 							AIGC
-							<p>余额:1,343980909,54</p>
+							<p>余额:<i>9,564564909,54</i></p>
 						</span>
 					</div>
 					<img src="img/nochoice.png" class="chioce"/>
@@ -89,7 +89,44 @@
 						<img src="img/wall.png"/>
 						<span>
 							收益钱包
-							<p>余额:1,343980909,54</p>
+							<p>余额:<i>5,555555,54</i></p>
+						</span>
+					</div>
+					<img src="img/nochoice.png" class="chioce"/>
+				</div>
+			</div>
+		</div>
+		
+		<div id="mo1">
+			<div class="close1"></div>
+			<div class="e_box">
+				<p class="yong">选择类型</p>
+				<div class="ei_buy">
+					<div class="dui_bi">
+						<img src="img/USDT.png"/>
+						<span>
+							USDT
+							<p>余额:<i>909,54</i></p>
+						</span>
+					</div>
+					<img src="img/chioce.png" class="chioce"/>
+				</div>
+				<div class="ei_buy">
+					<div class="dui_bi">
+						<img src="img/AIGC.png"/>
+						<span>
+							AIGC
+							<p>余额:<i>44</i></p>
+						</span>
+					</div>
+					<img src="img/nochoice.png" class="chioce"/>
+				</div>
+				<div class="ei_buy ex_buy">
+					<div class="dui_bi">
+						<img src="img/wall.png"/>
+						<span>
+							收益钱包
+							<p>余额:<i>11</i></p>
 						</span>
 					</div>
 					<img src="img/nochoice.png" class="chioce"/>
@@ -105,12 +142,35 @@
 		$(".close").click(function(){
 			$("#mo").css("display","none");
 		})
+		
+		$(".exchange_tips").click(function(){
+			$("#mo1").css("display","block");
+		})
+
+		$(".close1").click(function(){
+			$("#mo1").css("display","none");
+		})
 
 		var toggle = true;
 		$(".zi_buy").each(function() {
 			$(".zi_buy").click(function() {
 				if(toggle) {
+					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png");
+					$(".value_a").html($(this).find(".dui_bi span p i").html());
+					toggle = false;
+				} else {
 					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png")
+					toggle = true;
+				}
+			});
+		});
+		
+		var toggle = true;
+		$(".ei_buy").each(function() {
+			$(".ei_buy").click(function() {
+				if(toggle) {
+					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png");
+					$(".value_b").html($(this).find(".dui_bi span p i").html());
 					toggle = false;
 				} else {
 					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png")
