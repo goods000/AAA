@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">  	
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.guiBox{display: flex;flex-direction: row;justify-content: flex-start; margin-bottom: 20px;flex-wrap: wrap;}
+			.gg{padding:10px 20px;font-size: 1.0rem;color: #CECFDB;border:1px solid #CECFDB;margin-right: 10px; margin-bottom: 10px;border-radius: 5px;}
+			.guiBox .active{border:1px solid #424EE8;color:#424EE8;background:url(img/xuan.png)  100% 0 no-repeat;background-size:15px ;}
+		</style>
+	</head>
+	<body>
+		<h1 class="h1"><button class="iconfont icon-xiangzuo1" onclick="javascript:window.history.back(-1);"></button>购买矿机</h1>
+	    <div class="gorup1 fister">
+			<span class="zi_bi">
+				<img src="img/AIGC.png" class="dian_img"/>&nbsp;&nbsp;&nbsp;AIGC余额:
+			</span>
+			<span class="order_price">
+				888.88
+			</span>
+		</div>
+		<div class="abc">
+			<div class="gorup bu">
+				<span class="inputTitle">
+						油卡类型
+				</span>
+				<div class="guiBox">
+					<p class="gg">中石油</p>
+					<p class="gg">中石化</p>
+				</div>
+			</div>
+			<div class="shop_buy">
+				<p>油卡号</p>
+				<input type="number" placeholder="请输入加油卡卡号">
+			</div>
+			
+			<div class="e_btn">
+				<input type="button" id="sub" class="yzbutton" value="立即购买" />
+			</div>
+		</div>	
+		
+	</body>
+<script>
+	//选择规格
+	var type=0;
+	$(".guiBox").children().each(function(){
+		$(this).click(function() {
+			var index = $(this).index($(this))
+			type=index+1;
+			console.log(type)
+			$(this).addClass("active").siblings().removeClass("active");
+		})
+	})
+</script>	
+</html>
