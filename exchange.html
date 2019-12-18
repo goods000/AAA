@@ -22,12 +22,12 @@
 			<div class="exchange_top">
 				<div class="exchange_s">
 					<div class="exchange_title">
-						<span><img src="img/USDT.png"/><span>USDT</span><img src="img/select.png" class="select"/></span>
-						<p>余额:<i class="value_a">1002.34435</i></p>
+						<span class="map_1" did="1"><img src="img/USDT.png" id="map_1"/><span class="name_1">USDT</span><img src="img/select.png" class="select"/></span>
+						<p>余额:<i class="value_a">1002.35</i></p>
 					</div>
 					<img src="img/huzhuan.png" class="huzhuan"/>
-					<div class="exchange_tips">
-						<span><img src="img/AIGC.png"/><span>AIGC</span><img src="img/select.png" class="select"/></span>
+					<div class="exchange_tips"> 
+						<span class="map_2" did="2"><img src="img/AIGC.png" id="map_2"/><span class="name_2">AIGC</span><img src="img/select.png" class="select"/></span>
 						<p>余额:<i class="value_b">1002.34435</i></p>
 					</div>
 				</div>
@@ -68,7 +68,7 @@
 					<div class="dui_bi">
 						<img src="img/USDT.png"/>
 						<span>
-							USDT
+							<i>USDT</i>
 							<p>余额:<i>1,343980909,54</i></p>
 						</span>
 					</div>
@@ -78,7 +78,7 @@
 					<div class="dui_bi">
 						<img src="img/AIGC.png"/>
 						<span>
-							AIGC
+							<i>AIGC</i>
 							<p>余额:<i>9,564564909,54</i></p>
 						</span>
 					</div>
@@ -88,7 +88,7 @@
 					<div class="dui_bi">
 						<img src="img/wall.png"/>
 						<span>
-							收益钱包
+							<i>收益钱包</i>
 							<p>余额:<i>5,555555,54</i></p>
 						</span>
 					</div>
@@ -105,7 +105,7 @@
 					<div class="dui_bi">
 						<img src="img/USDT.png"/>
 						<span>
-							USDT
+							<i>USDT</i>
 							<p>余额:<i>909,54</i></p>
 						</span>
 					</div>
@@ -115,7 +115,7 @@
 					<div class="dui_bi">
 						<img src="img/AIGC.png"/>
 						<span>
-							AIGC
+							<i>AIGC</i>
 							<p>余额:<i>44</i></p>
 						</span>
 					</div>
@@ -125,7 +125,7 @@
 					<div class="dui_bi">
 						<img src="img/wall.png"/>
 						<span>
-							收益钱包
+							<i>收益钱包</i>
 							<p>余额:<i>11</i></p>
 						</span>
 					</div>
@@ -135,6 +135,26 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		$(".huzhuan").click(function(){
+			var did_1 = $(".map_1").attr('did');
+        	var did_2 = $(".map_2").attr('did');
+	        var n = $(".name_1").html();
+	        var img_1 = $("#map_1").attr('src');
+	        var value_1 = $(".value_a").html();
+	        var p = $(".name_2").html();
+	        var img_2 = $("#map_2").attr('src');
+	        var value_2 = $(".value_b").html();
+	        $(".name_1").html(p);
+	        $(".name_2").html(n);
+	        $("#map_1").attr('src',img_2);
+	        $("#map_2").attr('src',img_1);
+	        $(".value_a").html(value_2);
+	        $(".value_b").html(value_1);
+			$(".map_1").attr('did',did_2)
+        	$(".map_2").attr('did',did_1)
+	    })
+
+
 		$(".exchange_title").click(function(){
 			$("#mo").css("display","block");
 		})
@@ -157,6 +177,9 @@
 				if(toggle) {
 					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png");
 					$(".value_a").html($(this).find(".dui_bi span p i").html());
+					$("#map_1").attr("src",$(this).find(".dui_bi img").attr('src'));
+					$(".map_1").attr("did",$(this).find(".dui_bi input").val());
+					$(".name_1").text($(this).find(".dui_bi span i").html());
 					toggle = false;
 				} else {
 					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png")
@@ -171,6 +194,9 @@
 				if(toggle) {
 					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png");
 					$(".value_b").html($(this).find(".dui_bi span p i").html());
+					$("#map_2").attr("src",$(this).find(".dui_bi img").attr('src'));
+					$(".map_2").attr("did",$(this).find(".dui_bi input").val());
+					$(".name_2").text($(this).find(".dui_bi span i").html());
 					toggle = false;
 				} else {
 					$(this).find(".chioce").attr("src", "img/chioce.png").parent().siblings().find(".chioce").attr("src", "img/noChoice.png")

@@ -163,6 +163,7 @@ width: 60%;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;font-size
 .ex_buy{border-bottom: none !important;margin-bottom: 15% !important;}
 .dui_bi span{text-align: left;}
 .dui_bi span p{color: #979899;font-size: 10px;}
+.dui_bi span i{font-style: normal;}
 .dui_bi span p i{color: #979899;font-size: 10px;font-style: normal;}
 .dui_bi img{width: 20%;margin-right: 15px;}
 .chioce{width: 7%;}
